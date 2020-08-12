@@ -2,6 +2,7 @@
 - hosts: all
   remote_user: root
   tasks:
+  
     - name: Up telegram proxy container
       docker_container:
         name: tgproxy
