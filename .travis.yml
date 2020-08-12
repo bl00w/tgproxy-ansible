@@ -10,9 +10,9 @@ before_script:
   - mkdir -p ~/.ssh/
   - cp id_rsa ~/.ssh/
   - chmod 0600 ~/.ssh/id_rsa
-# - ssh-keyscan -H $TGPROXY_HOSTS >> ~/.ssh/known_hosts
-# - chmod 0600 ~/.ssh/known_hosts
+  - ssh-keyscan -H $TGPROXY_HOSTS >> ~/.ssh/known_hosts
+  - chmod 0644 ~/.ssh/known_hosts
   
 script:
-  - ls ~/.ssh/
-  - sudo ansible-playbook -i $TGPROXY_HOSTS, play-tgproxy.yml -e "proxy_secret=$TGPROXY_SECRET proxy_tag=$TGPROXY_TAG"
+  - ls -l ~/.ssh/
+  - sudo ansible-playbook -i $TGPROXY_HOSTS, play-tgproxy.yml -e "proxy_secret=$TGPROXY_SECRET proxy_tag=$TGPROXY_TAG" -vvvv
