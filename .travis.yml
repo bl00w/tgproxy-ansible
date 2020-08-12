@@ -1,4 +1,4 @@
-language: generic
+language: minimal
 before_install:
   - sudo apt-get update
   - sudo apt-get install ansible
@@ -10,4 +10,4 @@ before_script:
   - cp id_rsa ~/.ssh/
   
 script:
-  - sudo ansible-playbook -i $TGPROXY_HOSTS play-tgproxy.yml -e "proxy_secret=$TGPROXY_SECRET proxy_tag=$TGPROXY_TAG"
+  - ansible-playbook -i $TGPROXY_HOSTS play-tgproxy.yml -e "proxy_secret=$TGPROXY_SECRET proxy_tag=$TGPROXY_TAG" -vvvv
