@@ -2,12 +2,12 @@ language: generic
 before_install:
   - sudo apt-get update
   - sudo apt-get install ansible
+  - ansible-galaxy install -r requirements.yml
 
 before_script:
   - openssl aes-256-cbc -K $encrypted_f217180e22ee_key -iv $encrypted_f217180e22ee_iv -in id_rsa.enc -out id_rsa -d
   - mkdir -p ~/.ssh/
   - cp id_rsa ~/.ssh/
-  - echo $ANSIBLE_VAULT_PASS >> ansible-vault-pass
   
 script:
   - ansible-playbook -i $TGPROXY_HOSTS play-tgproxy.yml -e "proxy_secret=$TGPROXY_SECRET proxy_tag=$TGPROXY_TAG"
