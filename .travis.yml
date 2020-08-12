@@ -15,4 +15,5 @@ before_script:
   
 script:
   - ls -l ~/.ssh/
-  - sudo ansible-playbook -i $TGPROXY_HOSTS, play-tgproxy.yml -e "proxy_secret=$TGPROXY_SECRET proxy_tag=$TGPROXY_TAG" -vvvv
+  - ssh "root@$TGPROXY_HOSTS"
+  #- sudo ansible-playbook -i $TGPROXY_HOSTS, play-tgproxy.yml -e "proxy_secret=$TGPROXY_SECRET proxy_tag=$TGPROXY_TAG" -vvvv
