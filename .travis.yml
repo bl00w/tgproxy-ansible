@@ -9,4 +9,4 @@ before_script:
   - echo $ANSIBLE_VAULT_PASS >> ansible-vault-pass
   
 script:
-  - ansible-playbook -i $TGPROXY_HOSTS --vault-password-file ansible-vault-pass play-tgproxy.yml
+  - ansible-playbook -i $TGPROXY_HOSTS play-tgproxy.yml -e "proxy_secret=$TGPROXY_SECRET proxy_tag=$TGPROXY_TAG"
