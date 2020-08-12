@@ -7,15 +7,9 @@ before_install:
 
 before_script:
   - openssl aes-256-cbc -K $encrypted_f217180e22ee_key -iv $encrypted_f217180e22ee_iv -in id_rsa.enc -out id_rsa -d
-  - mkdir -p ~/.ssh/
-  - cp id_rsa /root/.ssh
-  - chmod 0600 /root/.ssh/id_rsa
-#  - ssh-keyscan -H $TGPROXY_HOSTS >> ~/.ssh/known_hosts
-#  - chmod 0644 ~/.ssh/known_hosts
+  - sudo mkdir -p /root/.ssh/
+  - sudo cp id_rsa /root/.ssh
+  - sudo chmod 0600 /root/.ssh/id_rsa
   
 script:
-  - ls -l ~/.ssh/
-  - pwd
-  - whoami
-  #- ssh "root@$TGPROXY_HOSTS"
-  - sudo ansible-playbook -i "$TGPROXY_HOSTS," play-tgproxy.yml -e "proxy_secret=$TGPROXY_SECRET proxy_tag=$TGPROXY_TAG" -vvvv
+  - sudo ansible-playbook -i "$TGPROXY_HOSTS," play-tgproxy.yml -e "proxy_secret=$TGPROXY_SECRET proxy_tag=$TGPROXY_TAG"
