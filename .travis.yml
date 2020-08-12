@@ -12,5 +12,4 @@ before_script:
   - ssh-keyscan $TGPROXY_HOSTS >> ~/.ssh/known_hosts
   
 script:
-  - ansible --version
-  - ansible-playbook -i $TGPROXY_HOSTS, play-tgproxy.yml -e "proxy_secret=$TGPROXY_SECRET proxy_tag=$TGPROXY_TAG" -vvvv
+  - sudo ansible-playbook -i $TGPROXY_HOSTS, play-tgproxy.yml -e "proxy_secret=$TGPROXY_SECRET proxy_tag=$TGPROXY_TAG" -vvvv
