@@ -1,4 +1,4 @@
-# tgproxy-ansible
+# tgproxy-ansible [![Build Status](https://travis-ci.org/bl00w/tgproxy-ansible.svg?branch=master)](https://travis-ci.org/bl00w/tgproxy-ansible)
 Up telegram proxy with ansible playbooks
 
 ### Usage
